@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_picture_item"
+        android:title="@string/add_picture" />
+    <item
+        android:id="@+id/add_album_item"
+        android:title="@string/add_album" />
+    <item
+        android:id="@+id/edit_account_item"
+        android:title="@string/edit" />
+    <item
+        android:id="@+id/exit_item"
+        android:title="@string/exit" />
+
+</menu>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.photoclicker.view.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.photoclicker.view.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.photoclicker.view.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.photoclicker.view.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_photoFragment"
+            app:destination="@id/photoFragment">
+            <argument
+                android:name="pictureId"
+                android:defaultValue="0"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_homeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_genreFragment"
+            app:destination="@id/genreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.photoclicker.view.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_searchFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_genreFragment"
+            app:destination="@id/genreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoFragment"
+        android:name="com.example.photoclicker.view.PhotoFragment"
+        android:label="fragment_photo"
+        tools:layout="@layout/fragment_photo">
+        <argument
+            android:name="pictureId"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_photoFragment_to_albumDialog"
+            app:destination="@id/albumDialog" />
+        <action
+            android:id="@+id/action_photoFragment_to_albumRecyclerDialog"
+            app:destination="@id/albumRecyclerDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.example.photoclicker.view.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications">
+        <action
+            android:id="@+id/action_notificationsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.photoclicker.view.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_accountFragment_to_addPictureFragment"
+            app:destination="@id/addPictureFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_albumDialog"
+            app:destination="@id/albumDialog" />
+        <action
+            android:id="@+id/action_accountFragment_to_albumFragment"
+            app:destination="@id/albumFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_editAccountFragment"
+            app:destination="@id/editAccountFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPictureFragment"
+        android:name="com.example.photoclicker.view.AddPictureFragment"
+        android:label="fragment_add_picture"
+        tools:layout="@layout/fragment_add_picture">
+        <action
+            android:id="@+id/action_addPictureFragment_to_genreDialog"
+            app:destination="@id/genreDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/genreDialog"
+        android:name="com.example.photoclicker.view.dialogs.GenreDialog"
+        android:label="GenreDialog" />
+    <dialog
+        android:id="@+id/albumDialog"
+        android:name="com.example.photoclicker.view.dialogs.AlbumDialog"
+        android:label="AlbumDialog" />
+    <fragment
+        android:id="@+id/albumFragment"
+        android:name="com.example.photoclicker.view.AlbumFragment"
+        android:label="fragment_album"
+        tools:layout="@layout/fragment_album" />
+    <dialog
+        android:id="@+id/albumRecyclerDialog"
+        android:name="com.example.photoclicker.view.dialogs.AlbumRecyclerDialog"
+        android:label="AlbumRecyclerDialog" />
+    <fragment
+        android:id="@+id/genreFragment"
+        android:name="com.example.photoclicker.view.GenreFragment"
+        android:label="fragment_genre"
+        tools:layout="@layout/fragment_genre" >
+        <action
+            android:id="@+id/action_genreFragment_to_photoFragment"
+            app:destination="@id/photoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAccountFragment"
+        android:name="com.example.photoclicker.view.EditAccountFragment"
+        android:label="fragment_edit_account"
+        tools:layout="@layout/fragment_edit_account" >
+        <action
+            android:id="@+id/action_editAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+</navigation>
